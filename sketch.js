@@ -2,7 +2,7 @@ var song;
 var fft;
 var button;
 var w;
-var nPunte = 16;
+var nPunte = 6;
 
 var strofa1 = ["Now", "the", "evening", "has", "come", "to", "a", "close", "And", "I've", "had", "my", "last", "dance", "with", "you", "So", "on", "to", "the", "empty", "streets", "we", "go", "And", "it", "might", "be", "my", "last", "chance", "with", "you", "So", "I", "might", "as", "well", "get", "it", "over", "with", "The",  "things", "I", "have", "to", "say",  "Won't",  "wait",   "until",    "another",     "day"]
 var intermezzo = ["Shut", "up", "Whoooooo", "Whoooooo", "Whoooooo"]
@@ -29,7 +29,7 @@ function setup() {
   song.play();
   fft = new p5.FFT(0.9, 128);
   w = width/64;
-
+  frameRate(30);
 }
 
 function draw() {
@@ -39,7 +39,7 @@ function draw() {
   translate(width / 2, height / 2);
   fill(255, 255, 255, 0)
   stroke(255, 255, 255, 75)
-  text(frameCount, 0, 13)
+  // text(frameCount, 0, 13)
 
 
 
@@ -67,22 +67,10 @@ if (frameCount<4000) {
       var x = r * cos(angle-frameCount/6);
       var y = r * sin(angle-frameCount/3);
       // stroke(i, 255, 255);
-      line(random(0,amp/20), random(0,amp/20), x, y);
+      line(0, 0, x, y);
       }
     }
-    // if (frameCount<4000) {
-    //   for (var i = 0; i < spectrum.length; i++) {
-    //     var angle = map(i, 0, spectrum.length, 0, 360*nPunte);
-    //     var amp = spectrum[i];
-    //     var y = map (amp, 0, 256, height, 0);
-    //     // rect(i*w, y, w, height - y);
-    //     var r = map(amp, 0, 256, 0, 100);
-    //     var x = r * cos(angle-frameCount/6);
-    //     var y = r * sin(angle-frameCount/3);
-    //     // stroke(i, 255, 255);
-    //     line(-10, -10, x, y);
-    //     }
-    //   }
+
     stroke(255,85)
     for (var i = 0; i < spectrum.length; i++) {
       var angle = map(i, 0, spectrum.length, 0, 360*amp);
@@ -96,20 +84,40 @@ if (frameCount<4000) {
       line(x*4, y*4, x*3.8, y*3.8);
       }
       //comparsa testo
-      if (frameCount > 690 && frameCount < 950) {
+      if (frameCount > 370 && frameCount < 480) {
       for (var i = 0; i < 8; i++) {
         text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*i) )
       }
     }
-      if (frameCount > 960 && frameCount < 1000) {
-      for (var i = 9; i < 16; i++) {
-        text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*i) )
+      if (frameCount > 540 && frameCount < 580) {
+      for (var i = 8; i < 16; i++) {
+        text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*(i-8)) )
       }
     }
 
-    if (frameCount > 1000 && frameCount < 1400) {
-    for (var i = 9; i < 16; i++) {
-      text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*i) )
+    if (frameCount > 660 && frameCount < 700) {
+    for (var i = 16; i < 24; i++) {
+      text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*(i-16)) )
+    }
+  }
+    if (frameCount > 780 && frameCount < 820) {
+    for (var i = 24; i < 33; i++) {
+      text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*(i-24)) )
+    }
+  }
+    if (frameCount > 1020 && frameCount < 1060) {
+    for (var i = 33; i < 43; i++) {
+      text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*(i-33)) )
+    }
+  }
+    if (frameCount > 1200 && frameCount < 1240) {
+    for (var i = 43; i < 50; i++) {
+      text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*(i-43)) )
+    }
+  }
+    if (frameCount > 1290 && frameCount < 1320) {
+    for (var i = 50; i < 56; i++) {
+      text(strofa1[i], -width/2 + 13, (-height/2 + 13)+(13*(i-50)) )
     }
   }
 }
